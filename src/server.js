@@ -15,7 +15,7 @@ app.get('/api/fire-data', async (req, res) => {
 
   try {
     const client = await pool.connect();
-    const result = await client.query(`SELECT * FROM fire_data LIMIT ${limit} OFFSET ${offset}`);
+    const result = await client.query(`SELECT * FROM fire_frequency LIMIT ${limit} OFFSET ${offset}`);
     client.release();
     res.json(result.rows);
   } catch (err) {
