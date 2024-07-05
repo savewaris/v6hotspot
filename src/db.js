@@ -1,10 +1,9 @@
 const { Pool } = require('pg');
 
-// Replace with your Render-managed PostgreSQL database connection URL
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DB_URL,
   ssl: {
-    rejectUnauthorized: false // Use this option only if your PostgreSQL instance requires SSL
+    rejectUnauthorized: false // Use this option only if your PostgreSQL instance requires SSL and is self-signed
   }
 });
 

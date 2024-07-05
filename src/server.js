@@ -19,7 +19,7 @@ app.get('/api/fire-data', async (req, res) => {
     client.release();
     res.json(result.rows);
   } catch (err) {
-    console.error('Error fetching data', err);
+    console.error('Error fetching data:', err); // Log detailed error message
     res.status(500).json({ error: 'Error fetching data' });
   }
 });
