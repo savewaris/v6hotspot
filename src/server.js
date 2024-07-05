@@ -1,12 +1,13 @@
 // server.js
 const express = require('express');
+const path = require('path'); // Node.js module for working with file and directory paths
 const pool = require('./db'); // Adjust path as needed
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Serve static files (e.g., index.html, CSS, JS)
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Endpoint to fetch fire data
 app.get('/api/fire-data', async (req, res) => {
@@ -22,6 +23,11 @@ app.get('/api/fire-data', async (req, res) => {
     console.error('Error fetching data', err);
     res.status(500).json({ error: 'Error fetching data' });
   }
+});
+
+// Serve index.html for all routes (fallback)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
