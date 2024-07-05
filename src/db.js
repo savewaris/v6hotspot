@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DB_URL,
   ssl: {
-    rejectUnauthorized: false // Use this option only if your PostgreSQL instance requires SSL and is self-signed
+    rejectUnauthorized: false // Only if your Render database requires SSL and is self-signed
   }
 });
 
