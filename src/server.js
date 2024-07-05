@@ -1,6 +1,5 @@
-// server.js
 const express = require('express');
-const path = require('path'); // Node.js module for working with file and directory paths
+const path = require('path');
 const pool = require('./db'); // Adjust path as needed
 
 const app = express();

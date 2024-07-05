@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +30,9 @@
           markers.addLayer(marker);
         });
         map.addLayer(markers);
+      })
+      .catch(error => {
+        console.error('Error fetching fire data:', error);
       });
   </script>
 </body>
